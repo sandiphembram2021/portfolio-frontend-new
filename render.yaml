@@ -52,5 +52,5 @@ services:
       - key: ENCRYPTION_KEY
         generateValue: true
     autoDeploy: true
-    branch: main
-    rootDir: backend
+    branch: backend
+    rootDir: .
