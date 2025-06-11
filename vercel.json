@@ -1,48 +1,37 @@
 {
-  "version": 2,
-  "name": "sandip-portfolio-frontend",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://portfolio-backend.onrender.com/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "https://portfolio-backend.onrender.com",
-    "NEXT_PUBLIC_FRONTEND_URL": "https://sandip-portfolio.vercel.app"
-  },
-  "functions": {
-    "app/api/proxy/route.js": {
-      "maxDuration": 30
-    }
-  },
-  "headers": [
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "outputDirectory": ".next",
+  "installCommand": "npm install",
+  "devCommand": "npm run dev",
+  "rewrites": [
     {
       "source": "/api/(.*)",
+      "destination": "https://portfolio-backend.onrender.com/api/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
       "headers": [
         {
-          "key": "Access-Control-Allow-Origin",
-          "value": "*"
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
         },
         {
-          "key": "Access-Control-Allow-Methods",
-          "value": "GET, POST, PUT, DELETE, OPTIONS"
+          "key": "X-Frame-Options",
+          "value": "DENY"
         },
         {
-          "key": "Access-Control-Allow-Headers",
-          "value": "Content-Type, Authorization"
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
         }
       ]
     }
-  ]
+  ],
+  "functions": {
+    "app/api/*/route.js": {
+      "maxDuration": 30
+    }
+  }
 }
