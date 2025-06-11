@@ -1,0 +1,27 @@
+{
+  "name": "Sandip Hembram - Portfolio",
+  "short_name": "SH Portfolio",
+  "description": "Personal portfolio of Sandip Hembram - ML Engineer, Backend Developer, and UI/UX Designer",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["portfolio", "developer", "ml-engineer"],
+  "lang": "en",
+  "dir": "ltr"
+}
